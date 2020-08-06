@@ -31,5 +31,17 @@ class GalacticMemoryGame{
             this.createGame();
         });
     }
-    
+    createGame(){
+        this.deck =this.settings.planets.concat(this.settings.planets).sort(()=>0.5 -Math.random());
+        this.matched =0;
+        this.actualCard="";
+        this.score= 0;
+        this.isSTart=false;
+        this.cardFounded=0;
+        this.createMenu();
+        for(var i=0;i<24;i++) this.createCard(i);
+        this.showAllCards;
+    }
+
+    }
 }
