@@ -7,18 +7,18 @@ class GalacticMemoryGame{
         this.settings= {
             container = ".memory",
             planets: [
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"},
-                {name:"earth", img:"assets/img/earth.jpg"}
+                {name:"earth",img:"img/earth.jpg"},
+                {name:"europa",img:"img/europa.jpg"},
+                {name:"jupiter",img:"img/jupiter.jpg"},
+                {name:"mars",img:"img/mars.jpg"},
+                {name:"mercury",img:"img/mercury1.png"},
+                {name:"moon",img:"img/moon.jpg"},
+                {name:"neptune",img:"img/neptune.jpg"},
+                {name:"uranus",img:"img/uranus.jpg"},
+                {name:"plutos",img:"img/pluto.jpg"},
+                {name:"titan",img:"img/Titan.jpg"},
+                {name:"venus",img:"img/venus.jpg"},
+                {name:"saturn",img:"img/saturn.jpg"}
             ],
             uniqueId:"c0d31nst1tut3"
         }
@@ -41,7 +41,7 @@ class GalacticMemoryGame{
         this.actualCard="";
         this.score= 0;
         this.isSTart=false;
-        this.cardFounded=0;
+        this.cardsFounded=0;
         this.createMenu();
         for(var i=0;i<24;i++) this.createCard(i);
         this.showAllCards;
@@ -68,7 +68,7 @@ class GalacticMemoryGame{
         }
     endGame(){
         var _this =this;
-        if(this.cardFounded>0){
+        if(this.cardsFounded>0){
         this.container.html('div class="end-message"><h3>You Win!</h3><br>You totaled'+this.cardsFounded.toLocaleString()+'points</div>');
         }else this.container.html('<div class="end-message"><h3>You Lose!</h3><br>Try Again</div><div class="playAgain" id="playAgain'+_this.settings.uniqueId+'">play again</div>');
         $('#playAgain'+this.settings.uniqueId).click(function(){
