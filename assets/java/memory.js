@@ -50,7 +50,20 @@ class GalacticMemoryGame{
             _this.createGame();
         });
     }
-    
-
+    showAllCards(){
+        var _this=this;
+        setTimeout(
+            function(){
+                $('.card').flip(true);
+                setTimeout(
+                    function(){
+                        $('.card').flip(false);
+                        _this.isStart= true;
+                    },3000);
+            }, 500);
+        }
+        
+        
     }
-}
+
+    
