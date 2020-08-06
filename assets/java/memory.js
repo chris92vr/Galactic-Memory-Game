@@ -74,8 +74,12 @@ class GalacticMemoryGame{
 
 }
 incScore(){
-    $
-}
+    $('#score'+this.settings.uniqueId).text(this.cardsFounded);
+    if(((this.cardsFounded)+((24-((this.matched)*2))*5))>0){
+        this.endGame();
+        }
+    }
+
         
         
     }
