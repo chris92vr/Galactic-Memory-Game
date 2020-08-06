@@ -62,6 +62,20 @@ class GalacticMemoryGame{
                     },3000);
             }, 500);
         }
+    endGame(){
+        var _this =this;
+        if(this.cardFounded>0){
+        this.container.html('div class="end-message"><h3>You Win!</h3><br>You totaled'+this.cardsFounded.toLocaleString()+'points</div>');
+        }else this.container.html('<div class="end-message"><h3>You Lose!</h3><br>Try Again</div><div class="playAgain" id="playAgain'+_this.settings.uniqueId+'">play again</div>');
+        $('#playAgain'+this.settings.uniqueId).click(function(){
+        _this.container.html('');
+        _this.createGame();
+    });
+
+}
+incScore(){
+    $
+}
         
         
     }
