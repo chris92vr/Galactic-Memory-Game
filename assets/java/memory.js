@@ -42,6 +42,15 @@ class GalacticMemoryGame{
         for(var i=0;i<24;i++) this.createCard(i);
         this.showAllCards;
     }
+    createMenu(){
+        var _this=this;
+        this.containe.append('<div class="menu">'+'Score:<span id="score'+this.settings.uniqueId+'">0</span></div> &ensp;&ensp;&ensp;&ensp;<span id="restart'+this.settings.uniqueId+'"class="restart">Restart</span>&ensp;&ensp;&ensp;</div>');
+        $('#restart'+this.settings.uniqueId).click(function(){
+            _this.container.html('');
+            _this.createGame();
+        });
+    }
+    
 
     }
 }
