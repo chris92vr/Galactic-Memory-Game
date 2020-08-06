@@ -1,0 +1,142 @@
+body{
+ display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+   position: relative;
+  text-align: center;
+    background-image: url("../img/background.jpg");
+}
+ #str {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 15vh;
+  
+}
+
+button{
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+     font-size: 5vh;
+   min-width: 400px;
+   position: relative;
+   top: 1400px;
+   
+
+}
+.card .front{
+    width:100%;
+    height:100%;
+
+   border-radius: 5px;
+    background-image: url("../img/back-card.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.card .back{
+    width:100%;
+    height:100%;
+   border-radius: 5px;
+  
+    position:relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.card .back .title{
+    width:100%;
+    color:#fff;
+    text-align:center;
+    position:absolute;
+    bottom:6px;
+    font-size:1.2rem;
+}
+.menu{
+
+    padding-top:8px;
+    text-align:center;
+   font-size: 2.5vh;
+    margin-bottom: 5px;
+}
+
+
+.start{
+    width:200px;
+    height:64px;
+    line-height:64px;
+    background-color:black;
+    color:#fff;
+    position:absolute;
+    top:400px;
+    left:300px;
+    margin-left:-100px;
+    margin-top:-20px;
+    text-align:center;
+    cursor:pointer;
+}
+.start:hover{
+    background-color:#0040c8;
+}
+.restart{
+    display:inline-block;
+    padding:8px;
+    background-color: #000;
+    color:#fff;
+    margin-top:4px;
+    cursor:pointer;
+}
+.restart:hover{
+    background-color:#0040c8;
+}
+.end-message {
+    width:400px;
+    height:200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align:center;
+   
+}
+.playAgain{
+    width:200px;
+    height:64px;
+    line-height:64px;
+    background-color: #000;
+    color:#fff;
+    text-align:center;
+    cursor:pointer;
+    margin: 0 auto;
+}
+.playAgain:hover{
+    background-color:#0040c8;
+}
+
+
+
+footer{
+    float: bottom;
+    padding-top: 180px;
+    margin-bottom: 20px;
+}
+.memory{
+    width: 50rem;
+    height: 30rem;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 40px;
+}
+.card{
+    width: 5.5rem;
+    height: 6.5rem;
+    float: left;
+    margin-top: 10px;
+    border: none;
+    margin-left: 2px;
+       
+
+}
+.memory .card{
+     background-image: url("../img/background.jpg");
+}
