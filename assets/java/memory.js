@@ -1,3 +1,7 @@
+$(document).ready(function(){
+var deck = new GalacticMemory();
+});
+ 
 class GalacticMemoryGame{
     constructor(settings){
         this.settings= {
