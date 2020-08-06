@@ -79,9 +79,69 @@ incScore(){
         this.endGame();
         }
     }
-
+createCard(id){
+    var front = '<div class="front"></div>';
+    var back = '<div class="back"><div class="title">'+this.deck[id].name+'</div></div>';
+    var _this=this;
+    this.container.append('<div id="card'+id+'-'+this.settings.uniqueId+'"class="card" data-name="'+this.deck[id].name+'"data-playable="1">'+front+back+'</div>');
+    $('#card'+id+'-'+this.settings.uniqueId+'.back').css('background-image','url("'+this.deck[id].img+'")');
+     $('#card'+id+'-'+this.settings.uniqueId).flip({
+         axis:yield,
+         trigger:'manual'
+     });
+      $('#card'+id+'-'+this.settings.uniqueId).click(function(){
+        if($(this).attr('data-playable')== 1 && _this.isStart){
+            var card=$(this.data("flip-model"));
+            if(card.isFlipped){
+                $(this).flip(false);
+            }else{
+                $(this).flip(true);
+            }
+            var playedCard=$(this).attr('data-name');
+           if( _this.actualCard == "" ) {
+	_this.actualCard = playedCard;
+	$(this).attr('data-playable',0);
+	} else {
+	if( _this.actualCard == playedCard ) {
+    // correct
+  
+	$('div[data-name="'+_this.actualCard+'"]').attr('data-playable',0);
+   
+    _this.matched++;
+    _this.cardsFounded+=10;
         
-        
+    _this.incScore();
+   console.log(_this.matched);
+    if (_this.matched == 12){
+        _this.endGame();
     }
+   } else if( _this.actualCard != "" && _this.actualCard != playedCard ) {
+	// wrong
+    _this.cardsFounded-=2;
+    _this.incScore();
+    var actualCard = _this.actualCard;
+
+	setTimeout(
+	function(){
+    
+	$('div[data-name="'+actualCard+'"]').flip(false);
+	$('div[data-name="'+playedCard+'"]').flip(false);
+	$('div[data-name="'+actualCard+'"]').attr('data-playable',1);
+    $('div[data-name="'+playedCard+'"]').attr('data-playable',1);
+   
+	}, 1000);
+	
+	}
+	_this.actualCard = "";
+	}
+    }
+    
+	});
+    
+    }
+}
+        
+        
+    
 
     
