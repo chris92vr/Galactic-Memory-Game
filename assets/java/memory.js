@@ -8,51 +8,51 @@ class GalacticMemoryGame {
             container : '.memory',
             planets: [{
                     name: "earth",
-                    img: "img/earth.jpg"
+                    img: "assets/img/earth.jpg"
                 },
                 {
                     name: "europa",
-                    img: "img/europa.jpg"
+                    img: "assets/img/europa.jpg"
                 },
                 {
                     name: "jupiter",
-                    img: "img/jupiter.jpg"
+                    img: "assets/img/jupiter.jpg"
                 },
                 {
                     name: "mars",
-                    img: "img/mars.jpg"
+                    img: "assets/img/mars.jpg"
                 },
                 {
                     name: "mercury",
-                    img: "img/mercury1.png"
+                    img: "assets/img/mercury1.png"
                 },
                 {
                     name: "moon",
-                    img: "img/moon.jpg"
+                    img: "assets/img/moon.jpg"
                 },
                 {
                     name: "neptune",
-                    img: "img/neptune.jpg"
+                    img: "assets/img/neptune.jpg"
                 },
                 {
                     name: "uranus",
-                    img: "img/uranus.jpg"
+                    img: "assets/img/uranus.jpg"
                 },
                 {
                     name: "plutos",
-                    img: "img/pluto.jpg"
+                    img: "assets/img/pluto.jpg"
                 },
                 {
                     name: "titan",
-                    img: "img/Titan.jpg"
+                    img: "assets/img/Titan.jpg"
                 },
                 {
                     name: "venus",
-                    img: "img/venus.jpg"
+                    img: "assets/img/venus.jpg"
                 },
                 {
                     name: "saturn",
-                    img: "img/saturn.jpg"
+                    img: "assets/img/saturn.jpg"
                 }
             ],
             uniqueId: 'c0d31nst1tut3'
@@ -123,8 +123,8 @@ class GalacticMemoryGame {
         var front = '<div class="front"></div>';
         var back = '<div class="back"><div class="title">' + this.deck[id].name + '</div></div>';
         var _this = this;
-        this.container.append('<div id="card' + id + '-' + this.settings.uniqueId + '"class="card" data-name="' + this.deck[id].name + '" data-playable="1">' + front + back + '</div>');
-        $('#card' + id + '-' + this.settings.uniqueId + '.back').css('background-image', 'url("' + this.deck[id].img + '")');
+        this.container.append('<div id="card' + id + '-' + this.settings.uniqueId + '" class="card" data-name="' + this.deck[id].name + '" data-playable="1">' + front + back + '</div>');
+        $('#card' + id + '-' + this.settings.uniqueId + ' .back').css('background-image', 'url("' + this.deck[id].img + '")');
         $('#card' + id + '-' + this.settings.uniqueId).flip({
             axis: 'y',
             trigger: 'manual'
