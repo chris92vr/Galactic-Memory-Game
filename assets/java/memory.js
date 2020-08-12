@@ -71,7 +71,7 @@ class GalacticMemoryGame {
         this.container = $(this.settings.container);
         //to refer to the objects of the class, not the click object element
         var _this = this;
-        this.container.html('<button class="start" id="start' + _this.settings.uniqueId + '">Start</button>');
+        this.container.html('<h1 id="title-game">Galactic Memory Game</h1><button class="start" id="start' + _this.settings.uniqueId + '">Start</button>');
         $('#start' + _this.settings.uniqueId).click(function() {
             //cleans the contents of the container
             _this.container.html('');
@@ -81,6 +81,7 @@ class GalacticMemoryGame {
     }
 
     createGame() {
+        console.log(typeof this.settings);
         //create card list to use and sort them randomly
         this.deck = this.settings.planets.concat(this.settings.planets).sort(() => 0.5 - Math.random());
         this.matched = 0;
