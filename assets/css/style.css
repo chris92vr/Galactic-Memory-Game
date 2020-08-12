@@ -129,8 +129,12 @@ footer {
 	position: relative;
 	padding-left: 50px;
 	margin-bottom: 40px;
+    margin-top: 50px;
 }
-
+section{
+    padding-left: 50px;
+	margin-bottom: 40px;
+}
 .card {
 	width: 5.5rem;
 	height: 6.5rem;
