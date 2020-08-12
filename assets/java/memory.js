@@ -28,7 +28,7 @@ class GalacticMemoryGame {
                 },
                 {
                     name: "mercury",
-                    img: "assets/img/mercury1.png"
+                    img: "assets/img/mercury.png"
                 },
                 {
                     name: "moon",
@@ -48,7 +48,7 @@ class GalacticMemoryGame {
                 },
                 {
                     name: "titan",
-                    img: "assets/img/Titan.jpg"
+                    img: "assets/img/titan.jpg"
                 },
                 {
                     name: "venus",
@@ -69,6 +69,7 @@ class GalacticMemoryGame {
     //create the button to start the game
     createStartButton() {
         this.container = $(this.settings.container);
+        //to refer to the objects of the class, not the click object element
         var _this = this;
         this.container.html('<button class="start" id="start' + _this.settings.uniqueId + '">Start</button>');
         $('#start' + _this.settings.uniqueId).click(function() {
