@@ -1,11 +1,15 @@
 $(document).ready(function() {
+    //Initialize a new object of class GalacticMemoryGame
     var deck = new GalacticMemoryGame();
 });
 
 class GalacticMemoryGame {
+    //class constructor
     constructor(settings) {
+        //default settings that will be used later
         this.settings = {
             container : '.memory',
+            //card images on the back
             planets: [{
                     name: "earth",
                     img: "assets/img/earth.jpg"
@@ -55,31 +59,38 @@ class GalacticMemoryGame {
                     img: "assets/img/saturn.jpg"
                 }
             ],
+            //unique code that associated with the id elements of the class, allows to avoid interference with other homonymous elements not created by the class itself
             uniqueId: 'c0d31nst1tut3'
         }
-
+        //overwrite, where they are declared, the user's settings to the default ones
         this.settings = Object.assign({}, this.settings, settings);
-        this.createButtonStart();
+        this.createStartButton();
     }
-    createButtonStart() {
+    //create the button to start the game
+    createStartButton() {
         this.container = $(this.settings.container);
         var _this = this;
         this.container.html('<button class="start" id="start' + _this.settings.uniqueId + '">Start</button>');
         $('#start' + _this.settings.uniqueId).click(function() {
+        //cleans the contents of the container
         _this.container.html('');
+        //start the game
         _this.createGame();
         });
      }
    
     createGame() {
+        //create card list to use and sort them randomly
         this.deck = this.settings.planets.concat(this.settings.planets).sort(() => 0.5 - Math.random());
         this.matched = 0;
         this.actualCard = "";
         this.score = 0;
         this.isStart = false;
-        this.cardsFounded = 0;
+        //create menu
         this.createMenu();
+        //adds the cards
         for (var i = 0; i < 24; i++) this.createCard(i);
+        //show the cards for a while
         this.showAllCards();
     }
     createMenu() {
@@ -92,21 +103,26 @@ class GalacticMemoryGame {
     }
     showAllCards() {
         var _this = this;
+        //within half a second he shows all the cards
         setTimeout(
             function() {
                 $('.card').flip(true);
+                //within three seconds turn over all the cards
                 setTimeout(
                     function() {
                         $('.card').flip(false);
+                        //confirm game start
                         _this.isStart = true;
                     }, 3000);
             }, 500);
     }
     endGame() {
         var _this = this;
-        if (this.cardsFounded > 0) {
-            this.container.html('div class="end-message"><h2>You Win!</h2><br>You totaled' + this.cardsFounded + 'points</div>');
+        //if the score is greater than 0, you win!
+        if (this.score > 0) {
+            this.container.html('div class="end-message"><h2>You Win!</h2><br>You totaled' + this.score + 'points</div>');
         } else this.container.html('<div class="end-message"><h2>You Lose!</h2><br>Try Again</div><div class="playAgain" id="playAgain' + _this.settings.uniqueId + '">play again</div>');
+        //restart game
         $('#playAgain' + this.settings.uniqueId).click(function() {
             _this.container.html('');
             _this.createGame();
@@ -114,15 +130,18 @@ class GalacticMemoryGame {
 
     }
     incScore() {
-        $('#score' + this.settings.uniqueId).text(this.cardsFounded);
-        if (((this.cardsFounded) + ((24 - ((this.matched) * 2)) * 5)) < 0) {
+        $('#score' + this.settings.uniqueId).text(this.score);
+        //if you don't have enough cards in play to score a positive score, the game ends
+        if (((this.score) + ((24 - ((this.matched) * 2)) * 5)) < 0) {
             this.endGame();
         }
     }
+
     createCard(id) {
         var front = '<div class="front"></div>';
         var back = '<div class="back"><div class="title">' + this.deck[id].name + '</div></div>';
         var _this = this;
+        //cards with respective image and the name of the planet behind
         this.container.append('<div id="card' + id + '-' + this.settings.uniqueId + '" class="card" data-name="' + this.deck[id].name + '" data-playable="1">' + front + back + '</div>');
         $('#card' + id + '-' + this.settings.uniqueId + ' .back').css('background-image', 'url("' + this.deck[id].img + '")');
         $('#card' + id + '-' + this.settings.uniqueId).flip({
@@ -144,23 +163,21 @@ class GalacticMemoryGame {
                 } else {
                     if (_this.actualCard == playedCard) {
                         // correct
-
                         $('div[data-name="' + _this.actualCard + '"]').attr('data-playable', 0);
-
+                        //increases matched cards and the score 10 points
                         _this.matched++;
-                        _this.cardsFounded += 10;
-
+                        _this.score += 10;
                         _this.incScore();
-                        console.log(_this.matched);
+                        //end game when you matched all cards
                         if (_this.matched == 12) {
                             _this.endGame();
                         }
                     } else if (_this.actualCard != "" && _this.actualCard != playedCard) {
-                        // wrong
-                        _this.cardsFounded -= 2;
+                        // wrong, decreases the score by two points
+                        _this.score -= 2;
                         _this.incScore();
                         var actualCard = _this.actualCard;
-
+                        //after one second turn the wrong card over and reset playable
                         setTimeout(
                             function() {
 
