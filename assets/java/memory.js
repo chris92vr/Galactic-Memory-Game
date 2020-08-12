@@ -8,7 +8,7 @@ class GalacticMemoryGame {
     constructor(settings) {
         //default settings that will be used later
         this.settings = {
-            container : '.memory',
+            container: '.memory',
             //card images on the back
             planets: [{
                     name: "earth",
@@ -73,13 +73,13 @@ class GalacticMemoryGame {
         var _this = this;
         this.container.html('<button class="start" id="start' + _this.settings.uniqueId + '">Start</button>');
         $('#start' + _this.settings.uniqueId).click(function() {
-        //cleans the contents of the container
-        _this.container.html('');
-        //start the game
-        _this.createGame();
+            //cleans the contents of the container
+            _this.container.html('');
+            //start the game
+            _this.createGame();
         });
-     }
-   
+    }
+
     createGame() {
         //create card list to use and sort them randomly
         this.deck = this.settings.planets.concat(this.settings.planets).sort(() => 0.5 - Math.random());
