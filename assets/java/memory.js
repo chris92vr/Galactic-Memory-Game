@@ -2,7 +2,12 @@ $(document).ready(function() {
     //Initialize a new object of class GalacticMemoryGame
     var deck = new GalacticMemoryGame();
 });
-
+/**
+ * Memory game
+ * @constructor
+ * @param {Array} settings - Default settings of the game.
+ * @author Christian Garofoli
+ */
 class GalacticMemoryGame {
     //class constructor
     constructor(settings) {
