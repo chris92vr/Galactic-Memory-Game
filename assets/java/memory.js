@@ -127,7 +127,7 @@ class GalacticMemoryGame {
         var _this = this;
         //if the score is greater than 0, you win!
         if (this.score > 0) {
-            this.container.html('<div class="end-message"><h2>You Win!</h2><br>You totaled: ' + this.score + 'points</div>');
+            this.container.html('<div class="end-message"><h2>You Won!</h2><br>You totaled: ' + this.score + ' points</div><div class="playAgain" id="playAgain' + _this.settings.uniqueId + '">play again</div>');
         } else this.container.html('<div class="end-message"><h2>You Lose!</h2><br>Try Again</div><div class="playAgain" id="playAgain' + _this.settings.uniqueId + '">play again</div>');
         //restart game
         $('#playAgain' + this.settings.uniqueId).click(function() {
