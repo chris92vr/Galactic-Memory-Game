@@ -179,7 +179,7 @@ footer {
 	.start {
 		width: 55px;
 		height: 64px;
-		top: 180px;
+		top: 280px;
 		left: 0px;
 	}
 	#title-game {
@@ -212,6 +212,7 @@ footer {
 	}
 	.start {		
 		left: 60px;
+        
 	}
 	#title-game {
 		padding-top: 10px;
