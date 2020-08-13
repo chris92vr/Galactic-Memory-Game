@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //Initialize a new object of class GalacticMemoryGame
-    var deck = new GalacticMemoryGame();
+    let deck = new GalacticMemoryGame();
 });
 /**
  * Memory game
@@ -75,7 +75,7 @@ class GalacticMemoryGame {
     createStartButton() {
         this.container = $(this.settings.container);
         //to refer to the objects of the class, not the click object element
-        var _this = this;
+        const _this = this;
         this.container.html('<h1 id="title-game">Galactic Memory Game</h1><button class="start" id="start' + _this.settings.uniqueId + '">Start</button>');
         $('#start' + _this.settings.uniqueId).click(function() {
             //cleans the contents of the container
@@ -101,7 +101,7 @@ class GalacticMemoryGame {
         this.showAllCards();
     }
     createMenu() {
-        var _this = this;
+        const _this = this;
         this.container.append('<div class="menu">' + 'Score:<span id="score' + this.settings.uniqueId + '">0</span> &ensp;&ensp;&ensp;<span id="restart' + this.settings.uniqueId + '" class="restart">Restart</span></div>');
         $('#restart' + this.settings.uniqueId).click(function() {
             _this.container.html('');
@@ -109,7 +109,7 @@ class GalacticMemoryGame {
         });
     }
     showAllCards() {
-        var _this = this;
+        const _this = this;
         //within half a second he shows all the cards
         setTimeout(
             function() {
@@ -124,7 +124,7 @@ class GalacticMemoryGame {
             }, 500);
     }
     endGame() {
-        var _this = this;
+        const _this = this;
         //if the score is greater than 0, you win!
         if (this.score > 0) {
             this.container.html('<div class="end-message"><h2>You Won!</h2><br>You totaled: ' + this.score + ' points</div><div class="playAgain" id="playAgain' + _this.settings.uniqueId + '">play again</div>');
@@ -145,9 +145,9 @@ class GalacticMemoryGame {
     }
 
     createCard(id) {
-        var front = '<div class="front"></div>';
-        var back = '<div class="back"><div class="title">' + this.deck[id].name + '</div></div>';
-        var _this = this;
+        let front = '<div class="front"></div>';
+        let back = '<div class="back"><div class="title">' + this.deck[id].name + '</div></div>';
+        const _this = this;
         //cards with respective image and the name of the planet behind
         this.container.append('<div id="card' + id + '-' + this.settings.uniqueId + '" class="card" data-name="' + this.deck[id].name + '" data-playable="1">' + front + back + '</div>');
         $('#card' + id + '-' + this.settings.uniqueId + ' .back').css('background-image', 'url("' + this.deck[id].img + '")');
@@ -183,7 +183,7 @@ class GalacticMemoryGame {
                         // wrong, decreases the score by two points
                         _this.score -= 2;
                         _this.incScore();
-                        var actualCard = _this.actualCard;
+                        const actualCard = _this.actualCard;
                         //after one second turn the wrong card over and reset playable
                         setTimeout(
                             function() {
