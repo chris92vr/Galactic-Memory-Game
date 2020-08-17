@@ -12,7 +12,6 @@ body {
 
 #title-game {
 	font-family: 'Permanent Marker', cursive;
-	text-align: center;
 	padding-top: 50px;
 	font-size: 15vh;
 }
@@ -22,8 +21,7 @@ button {
 	text-align: center;
 	font-size: 5vh;
 	min-width: 400px;
-	position: relative;
-	top: 1400px;
+	
 }
 
 .card .front {
@@ -68,11 +66,9 @@ button {
 	line-height: 64px;
 	background-color: black;
 	color: #fff;
-	position: absolute;
-	top: 400px;
-	left: 300px;
+	margin-right: -100px;
 	margin-left: -100px;
-	margin-top: -20px;
+	margin-top: 20px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -143,7 +139,18 @@ footer {
 .memory .card {
 	background-image: url("../img/background.jpg");
 }
+@media screen and (min-width: 1280px) {
+    .start {
+		width: 100px;
+		height: 64px;
+	top: 460px;
+	
+	}
 
+#title-game {
+	
+
+}
 @media screen and (max-width: 825px) {
 	.memory {
 		width: 30rem;
