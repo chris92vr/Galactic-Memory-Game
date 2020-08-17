@@ -186,6 +186,9 @@ footer {
 	.card .back .title {
 		font-size: 1rem;
 	}
+    #title-game {
+		font-size: 7vh;
+	}
 }
 
 @media screen and (max-width: 408px) {
