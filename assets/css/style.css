@@ -146,6 +146,7 @@ footer {
 	top: 460px;
 	
 	}
+}
 @media screen and (max-width: 825px) {
 	.memory {
 		width: 30rem;
@@ -155,14 +156,7 @@ footer {
 		width: 4.5rem;
 		height: 5.5rem;
 	}
-	.start {
-		width: 100px;
-		height: 64px;
-		margin-left: 0px;
-		margin-top: 0px;
-		top: 260px;
-		left: 60px;
-	}
+	
 	#title-game {
 		padding-top: 15px;
 		font-size: 10vh;
@@ -181,12 +175,6 @@ footer {
 	.start {
 		width: 55px;
 		height: 64px;
-		top: 280px;
-		left: 0px;
-	}
-	#title-game {
-		font-size: 6vh;
-        margin-right: 60px;
 	}
 	.playAgain {
 		margin-left: 50px;
@@ -215,10 +203,6 @@ footer {
 	.start {		
 		left: 60px;
         
-	}
-	#title-game {
-		padding-top: 10px;
-		font-size: 5vh;
 	}
 	.menu {
 		padding-top: 8px;
