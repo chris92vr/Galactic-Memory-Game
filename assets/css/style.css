@@ -143,7 +143,7 @@ footer {
     .start {
 	width: 100px;
 	height: 64px;
-	top: 460px;
+
 	
 	}
 }
@@ -203,7 +203,9 @@ footer {
 		min-width: 200px;
 	}
 	.start {		
-		left: 60px;
+		margin-left: -150px;
+		
+		
         
 	}
 	.menu {
@@ -224,5 +226,6 @@ footer {
 	}
     #title-game {
 		font-size: 6vh;
+		margin-right: 50px;
 	}
 }
