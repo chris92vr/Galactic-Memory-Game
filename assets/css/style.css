@@ -177,10 +177,9 @@ footer {
 		height: 64px;
 	}
 	.playAgain {
-		margin-left: 50px;
+		margin-left:100px;
 	}
 	.end-message {
-		padding-right: 86px;
 		margin-top: 30px;
 	}
 	.card .back .title {
@@ -215,11 +214,11 @@ footer {
 		margin-bottom: 5px;
 	}
 	.end-message {
-		padding-right: 165px;
+		padding-right: 40px;
 		margin-top: 30px;
 	}
 	.playAgain {
-		margin-left: 13px;
+			margin-left:80px;
 	}
 	.card .back .title {
 		font-size: 0.8rem;
