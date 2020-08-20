@@ -200,9 +200,6 @@ footer {
 	button {
 		min-width: 200px;
 	}
-	.start {
-		margin-left: -150px;
-	}
 	.menu {
 		padding-top: 8px;
 		text-align: center;
@@ -221,8 +218,7 @@ footer {
 	}
 	#title-game {
 		font-size: 6vh;
-		margin-right: 50px;
+
 	}
 }
-
 
