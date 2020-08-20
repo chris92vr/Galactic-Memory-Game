@@ -22,6 +22,12 @@ Once the game is finished, the respective message (you won or lost) appears with
 4. As a potential client, I want it to be compatible on any screen resolution.
 5. As a potential client, I want that works well on any browser, even mobile. 
 
+### Strategy
+My goal in design was to make it intuitive and easy to interact to make the gaming experience better.
+
+### Scope
+Learn the names of the planets while having fun.
+
 ### Design and colors:
 
 #### Fonts:
@@ -65,7 +71,9 @@ This game was developed thanks to flip class of Javascript's jquery library. Onc
 - End message - shows the user the final result with the respective score
 
 ### Features Left to Implement
-- Implement different levels of difficulty to better test your memory
+- Implement different levels of difficulty to better test your memory. 
+- Add sound effects 
+- Record the best score
 ## Technologies Used
 
 - HTML5
@@ -83,7 +91,7 @@ This game was developed thanks to flip class of Javascript's jquery library. Onc
 Several tests were carried out to verify the correct functioning of the project with positive results.
 The functionality of the site is optimal. Any link and button is active and leads to the corresponding destination.
 Browser compatibility is verified for Firefox, Chrome and Edge. The responsiveness of the pages is suitable on desktop screens, tablets and mobile phones.
-In the folder [projectdocumentation/testing](https://github.com/chris92vr/Galactic-Memory-Game/tree/master/project-documentation/testing), there are screenshots that show browser compatibility and responsiveness tests.
+In the folder [project-documentation/testing](https://github.com/chris92vr/Galactic-Memory-Game/tree/master/project-documentation/testing), there are screenshots that show browser compatibility and responsiveness tests.
 
 
 In order to to check the validity of the website code, I have used the following:
@@ -97,9 +105,14 @@ In order to to check the validity of the website code, I have used the following
 | start button| clear screen and start game| pass
 | show cards | shows the cards for three seconds once the game is started| pass
 | flip cards | the card flips on click, if it is not already rotated | pass
+| card matching| select two cards, if they are the same they remain turned if they do not turn over| pass
 | score | the score increases by 10 points for each card match and decreases by two for each wrong attempt | pass
 | end game | the game ends when all matches have been found, or if you do not have enough cards available to make a positive score | pass
 | end message | once the game is finished, a message appears with the final result and the score achieved | pass
+| responsiveness| the game adapts to all screen resolutions and device | pass
+| browser compatibility | the game works correctly on any browser | pass
+
+
 
 ## Deployment
 
