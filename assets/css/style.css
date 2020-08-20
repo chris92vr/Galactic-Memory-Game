@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 body {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
 	min-height: 100vh;
-	position: relative;
 	text-align: center;
 	background-image: url("../img/background.jpg");
 }
@@ -121,23 +116,23 @@ footer {
 
 .memory {
 	width: 50rem;
-	height: 30rem;
-	position: relative;
-	
+	height: 30rem;	
 	margin-bottom: 40px;
+	margin: 0 auto;	
 }
 
 .card {
 	width: 5.5rem;
 	height: 6.5rem;
-	float: left;
+	float: left; 
 	margin-top: 10px;
 	border: none;
-	margin-left: 2px;
+	margin-left: 10px;
 }
 
 .memory .card {
 	background-image: url("../img/background.jpg");
+
 }
 @media screen and (max-width: 1280px) {
     .start {
@@ -155,6 +150,7 @@ footer {
 	.card {
 		width: 4.5rem;
 		height: 5.5rem;
+		margin-left: 20px;
 	}
 	
 	#title-game {
@@ -171,6 +167,7 @@ footer {
 	.card {
 		width: 4rem;
 		height: 5rem;
+		margin-left: 13px;
 	}
 	.start {
 		width: 55px;
@@ -191,12 +188,11 @@ footer {
 }
 
 @media screen and (max-width: 408px) {
-	.memory {
-		margin-left: 48px;
-	}
+	
 	.card {
 		width: 3.5rem;
 		height: 4.5rem;
+		margin-left: 19.5px;
 	}
 	button {
 		min-width: 200px;
