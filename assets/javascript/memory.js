@@ -5,7 +5,7 @@ $(document).ready(function() {
 /**
  * Memory game
  * @constructor
- * @param {Array} settings - Default settings of the game.
+ * @param {Object} settings - Default settings of the game.
  * @author Christian Garofoli
  */
 class GalacticMemoryGame {
