@@ -1,5 +1,3 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 body {
 	min-height: 100vh;
@@ -10,7 +8,7 @@ body {
 #title-game {
 	font-family: 'Permanent Marker', cursive;
 	padding-top: 50px;
-	font-size: 15vh;
+	font-size: 12vh;
 }
 
 button {
