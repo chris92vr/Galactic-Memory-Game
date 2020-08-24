@@ -64,7 +64,8 @@ class GalacticMemoryGame {
                     img: "assets/img/saturn.jpg"
                 }
             ],
-            //unique code that associated with the id elements of the class, allows to avoid interference with other homonymous elements not created by the class itself
+            //unique code that associated with the id elements of the class, allows to avoid 
+            //interference with other homonymous elements not created by the class itself
             uniqueId: 'c0d31nst1tut3'
         }
         //overwrite, where they are declared, the user's settings to the default ones
