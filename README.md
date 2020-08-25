@@ -44,21 +44,21 @@ I used Permanent Marker, from Google Fonts for the initial title of the game.
 * ![#000000](https://placehold.it/15/000000/000000?text=+) black - color of the score and the final message
 
 ### Skeleton
-[Start wireframe]
+[Start wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/home%20screen.jpg)
 
-[Galactic Memory Game wireframe]
+[Galactic Memory Game wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/Galactic%20Memory%20Game.jpg)
 
-[end winning message wireframe]
+[end winning message wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/winning%20message.jpg)
 
-[end loser message wireframe]
+[end loser message wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/losing%20message.jpg)
 
-[Start (mobile) wireframe]
+[Start (mobile) wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/home%20screeen-%20Mobile.jpg)
 
-[Galactic Memory Game (mobile) wireframe]
+[Galactic Memory Game (mobile) wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/Galactic%20Memory%20Game-%20Mobile.jpg)
 
-[end winning message (mobile) wireframe]
+[end winning message (mobile) wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/winning%20message-%20Mobile.jpg)
 
-[end loser message (mobile) wireframe]
+[end loser message (mobile) wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/losing%20message%20-%20Mobile.jpg)
 
 
 ## Features
