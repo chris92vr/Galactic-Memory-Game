@@ -218,4 +218,17 @@ footer {
 
 	}
 }
+@media screen and (max-width: 352px) {
+	.memory {
+		width: 20rem;
+		height: 35rem;
+	}
+	.card {
+		width: 3rem;
+		height: 4rem;
+		margin-left: 4.5px;
+	}
+	
+	
+}
 
