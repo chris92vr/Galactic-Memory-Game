@@ -17,56 +17,53 @@ class GalacticMemoryGame {
             //card images on the back
             planets: [{
                     name: "earth",
-                    img: "assets/img/earth.jpg"
+                    img: "earth.jpg"
                 },
                 {
                     name: "europa",
-                    img: "assets/img/europa.jpg"
+                    img: "europa.jpg"
                 },
                 {
                     name: "jupiter",
-                    img: "assets/img/jupiter.jpg"
+                    img: "jupiter.jpg"
                 },
                 {
                     name: "mars",
-                    img: "assets/img/mars.jpg"
+                    img: "mars.jpg"
                 },
                 {
                     name: "mercury",
-                    img: "assets/img/mercury.png"
+                    img: "mercury.png"
                 },
                 {
                     name: "moon",
-                    img: "assets/img/moon.jpg"
+                    img: "moon.jpg"
                 },
                 {
                     name: "neptune",
-                    img: "assets/img/neptune.jpg"
+                    img: "neptune.jpg"
                 },
                 {
                     name: "uranus",
-                    img: "assets/img/uranus.jpg"
+                    img: "uranus.jpg"
                 },
                 {
                     name: "plutos",
-                    img: "assets/img/pluto.jpg"
+                    img: "pluto.jpg"
                 },
                 {
                     name: "titan",
-                    img: "assets/img/titan.jpg"
+                    img: "titan.jpg"
                 },
                 {
                     name: "venus",
-                    img: "assets/img/venus.jpg"
+                    img: "venus.jpg"
                 },
                 {
                     name: "saturn",
-                    img: "assets/img/saturn.jpg"
+                    img: "saturn.jpg"
                 }
             ],
-            //unique code that associated with the id elements of the class, allows to avoid 
-            //interference with other homonymous elements not created by the class itself
-            uniqueId: 'c0d31nst1tut3'
         }
         //overwrite, where they are declared, the user's settings to the default ones
         this.settings = Object.assign({}, this.settings, settings);
@@ -78,9 +75,8 @@ class GalacticMemoryGame {
         //to refer to the objects of the class, not the click object element
         const _this = this;
         this.container.html(
-            '<h1 id="title-game">Galactic Memory Game</h1><button class="start" id="start' +
-            _this.settings.uniqueId + '">Start</button>');
-        $('#start' + _this.settings.uniqueId).click(function() {
+            '<h1 id="title-game">Galactic Memory Game</h1><button class="start" id="start">Start</button>');
+        $('#start').click(function() {
             //cleans the contents of the container
             _this.container.html('');
             //start the game
@@ -106,11 +102,8 @@ class GalacticMemoryGame {
     createMenu() {
         const _this = this;
         this.container.append('<div class="menu">' +
-            'Score:<span id="score' + this.settings.uniqueId +
-            '">0</span> &ensp;&ensp;&ensp;<span id="restart' + this
-            .settings.uniqueId +
-            '" class="restart">Restart</span></div>');
-        $('#restart' + this.settings.uniqueId).click(function() {
+            'Score:<span id="score">0</span> &ensp;&ensp;&ensp;<span id="restart" class="restart">Restart</span></div>');
+        $('#restart').click(function() {
             _this.container.html('');
             _this.createGame();
         });
@@ -137,20 +130,18 @@ class GalacticMemoryGame {
             this.container.html(
                 '<div class="end-message"><h2>You Won!</h2><br>You totaled: ' +
                 this.score +
-                '/120 points</div><div class="playAgain" id="playAgain' +
-                _this.settings.uniqueId + '">play again</div>');
+                '/120 points</div><div class="playAgain" id="playAgain">play again</div>');
         } else this.container.html(
-            '<div class="end-message"><h2>You Lost!</h2><br><h3>Try Again..</h3></div><div class="playAgain" id="playAgain' +
-            _this.settings.uniqueId + '">play again</div>');
+            '<div class="end-message"><h2>You Lost!</h2><br><h3>Try Again..</h3></div><div class="playAgain" id="playAgain">play again</div>');
         //restart game
-        $('#playAgain' + this.settings.uniqueId).click(function() {
+        $('#playAgain').click(function() {
             _this.container.html('');
             _this.createGame();
         });
 
     }
     incScore() {
-        $('#score' + this.settings.uniqueId).text(this.score);
+        $('#score').text(this.score);
         //if you don't have enough cards in play to score a positive score, the game ends
         if (((this.score) + ((24 - ((this.matched) * 2)) * 5)) < 0) {
             this.endGame();
@@ -162,17 +153,17 @@ class GalacticMemoryGame {
         let back = '<div class="back"><div class="title">' + this.deck[id]
             .name + '</div></div>';
         const _this = this;
+        const image_path = 'assets/img/';
         //cards with respective image and the name of the planet behind
-        this.container.append('<div id="card' + id + '-' + this.settings
-            .uniqueId + '" class="card" data-name="' + this.deck[id]
+        this.container.append('<div id="card' + id + '" class="card" data-name="' + this.deck[id]
             .name + '" data-playable="1">' + front + back + '</div>');
-        $('#card' + id + '-' + this.settings.uniqueId + ' .back').css(
-            'background-image', 'url("' + this.deck[id].img + '")');
-        $('#card' + id + '-' + this.settings.uniqueId).flip({
+        $('#card' + id  + ' .back').css(
+            'background-image', 'url("' + image_path + this.deck[id].img + '")');
+        $('#card' + id).flip({
             axis: 'y',
             trigger: 'manual'
         });
-        $('#card' + id + '-' + this.settings.uniqueId).click(function() {
+        $('#card' + id ).click(function() {
             if ($(this).attr('data-playable') == 1 && _this
                 .isStart) {
                 var card = $(this).data("flip-model");
@@ -186,7 +177,7 @@ class GalacticMemoryGame {
                     _this.actualCard = playedCard;
                     $(this).attr('data-playable', 0);
                 } else {
-                    if (_this.actualCard == playedCard) {
+                    if (_this.actualCard == playedCard)  {
                         // correct
                         $('div[data-name="' + _this.actualCard +
                             '"]').attr('data-playable', 0);
@@ -207,7 +198,6 @@ class GalacticMemoryGame {
                         //after one second turn the wrong card over and reset playable
                         setTimeout(
                             function() {
-
                                 $('div[data-name="' +
                                     actualCard + '"]').flip(
                                     false);
@@ -222,7 +212,6 @@ class GalacticMemoryGame {
                                     'data-playable', 1);
 
                             }, 1000);
-
                     }
                     _this.actualCard = "";
                 }
