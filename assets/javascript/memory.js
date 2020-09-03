@@ -89,9 +89,15 @@ class GalacticMemoryGame {
         this.deck = this.settings.planets.concat(this.settings.planets)
             .sort(() => 0.5 - Math.random());
         this.matched = 0;
-        this.actualCard = "";
         this.score = 0;
         this.isStart = false;
+        this.click = 0;
+        this.first = "";
+        this.second = "";
+        this.idF = "";
+        this.idS = "";
+        this.flipOne = "";
+        this.flipTwo = "";
         //create menu
         this.createMenu();
         //adds the cards
@@ -156,68 +162,62 @@ class GalacticMemoryGame {
         const image_path = 'assets/img/';
         //cards with respective image and the name of the planet behind
         this.container.append('<div id="card' + id + '" class="card" data-name="' + this.deck[id]
-            .name + '" data-playable="1">' + front + back + '</div>');
-        $('#card' + id  + ' .back').css(
+            .name + '">' +  front + back + '</div>');
+        $('#card' + id + ' .back').css(
             'background-image', 'url("' + image_path + this.deck[id].img + '")');
         $('#card' + id).flip({
             axis: 'y',
             trigger: 'manual'
         });
-        $('#card' + id ).click(function() {
-            if ($(this).attr('data-playable') == 1 && _this
-                .isStart) {
-                var card = $(this).data("flip-model");
-                if (card.isFlipped) {
-                    $(this).flip(false);
-                } else {
-                    $(this).flip(true);
-                }
+        $('#card' + id).click(function() {
+            var card = $(this).data("flip-model");
+            //If the game has started and the clicked card is not already turned
+            if (_this
+                .isStart && card.isFlipped == false) {
+                
+                $(this).flip(true);       //flip the card
                 var playedCard = $(this).attr('data-name');
-                if (_this.actualCard == "") {
-                    _this.actualCard = playedCard;
-                    $(this).attr('data-playable', 0);
-                } else {
-                    if (_this.actualCard == playedCard)  {
-                        // correct
-                        $('div[data-name="' + _this.actualCard +
-                            '"]').attr('data-playable', 0);
+                _this.click++;              
+                if (_this.click == 1) {
+                    _this.first = playedCard; //name first card selected
+                    _this.idF = $(this);    //id first card selected
+                }
+                if (_this.click == 2) {
+                    _this.isStart = false;//avoid clicking on a card before the two wrong combination cards are turned over
+                    _this.click = 0;        //reset click
+                    _this.second = playedCard;//name second card selected
+                    _this.idS = $(this);     //id second card selected            
+                    if (_this.first == _this.second) {
+                        //correct match
                         //increases matched cards and the score 10 points
                         _this.matched++;
                         _this.score += 10;
                         _this.incScore();
+                        _this.idF.addClass("matched");//added matched class, first card selected
+                        _this.idS.addClass("matched");//added matched class, second card selected
+                        _this.isStart = true;//set to true boolean variable isStart
                         //end game when you matched all cards
                         if (_this.matched == 12) {
                             _this.endGame();
                         }
-                    } else if (_this.actualCard != "" && _this
-                        .actualCard != playedCard) {
-                        // wrong, decreases the score by two points
+                    } else {
+                        // wrong match, decreases the score by two points
                         _this.score -= 2;
                         _this.incScore();
-                        const actualCard = _this.actualCard;
-                        //after one second turn the wrong card over and reset playable
+                        _this.flipOne = _this.idF;
+                        _this.flipTwo = _this.idS;                       
+                        //after one second turn the wrong card over and set to true boolean variable isStart
                         setTimeout(
                             function() {
-                                $('div[data-name="' +
-                                    actualCard + '"]').flip(
+                                $(_this.flipOne).flip(
                                     false);
-                                $('div[data-name="' +
-                                    playedCard + '"]').flip(
+                                $(_this.flipTwo).flip(
                                     false);
-                                $('div[data-name="' +
-                                    actualCard + '"]').attr(
-                                    'data-playable', 1);
-                                $('div[data-name="' +
-                                    playedCard + '"]').attr(
-                                    'data-playable', 1);
-
+                                _this.isStart = true;
                             }, 1000);
                     }
-                    _this.actualCard = "";
                 }
             }
-
         });
-
     }
 }
