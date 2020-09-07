@@ -97,13 +97,10 @@ class GalacticMemoryGame {
         this.second = "";
         this.idF = "";
         this.idS = "";
-        this.isFlipped = false;
         //create menu
         this.createMenu();
         //adds the cards
-        this.container.append('<div class="card-deck>');
         for (var i = 0; i < 24; i++) this.createCard(i);
-        this.container.append('</div>');
         //show the cards for a while
         this.showAllCards();
     }
@@ -122,11 +119,11 @@ class GalacticMemoryGame {
         //within half a second he shows all the cards
         setTimeout(
             function() {
-                $('.card').toggleClass('flipped');
+                $('.card-inner').toggleClass('flipped');
                 //within three seconds turn over all the cards
                 setTimeout(
                     function() {
-                        $('.card').toggleClass('flipped');
+                        $('.card-inner').toggleClass('flipped');
                         //confirm game start
                         _this.isStart = true;
                     }, 3000);
@@ -166,18 +163,16 @@ class GalacticMemoryGame {
         const _this = this;
         const image_path = 'assets/img/';
         //cards with respective image and the name of the planet behind
-        this.container.append('<div id="card' + id +
-            '" class="card" data-name="' + this.deck[id]
-            .name + '" data-playable="1">' + front + back + '</div>');
+        this.container.append('<div class="card"><div id="card' + id +
+            '" class="card-inner" data-name="' + this.deck[id]
+            .name + '" data-playable="1">' + front + back + '</div></div>');
         $('#card' + id + ' .back').css(
             'background-image', 'url("' + image_path + this.deck[id]
             .img + '")');
-        $('#card' + id).flip({
-            axis: 'y',
-            trigger: 'manual'
-        });
+        
+        
         $('#card' + id).click(function() {
-            var card = $(this).data("flip-model");
+           
             //If the game has started and the clicked card is not already turned
             if (_this
                 .isStart && $(this).attr('data-playable') == 1) {
