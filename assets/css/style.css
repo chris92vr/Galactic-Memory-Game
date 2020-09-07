@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 body {
-	min-height: 100vh;
 	text-align: center;
 	background-image: url("../img/background.jpg");
 }
@@ -26,6 +25,7 @@ button {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
+	z-index: 1;
 }
 
 .card .back {
@@ -36,13 +36,10 @@ button {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	-webkit-transform: rotateY( 180deg);
-	-moz-transform: rotateY( 180deg);
-	-o-transform: rotateY( 180deg);
-	transform: rotateY( 180deg);
+	transform: rotateY(180deg);
 }
 
-.card .back .title {
+.card-inner .back .title {
 	width: 100%;
 	color: #fff;
 	text-align: center;
@@ -111,61 +108,54 @@ button {
 	background-color: #0040c8;
 }
 
-footer {
-	float: bottom;
-	padding-top: 180px;
-	margin-bottom: 20px;
-}
-
 .memory {
-	width: 50rem;
-	height: 30rem;
-	margin-bottom: 40px;
+	width: 55rem;
+	height: 40rem;
 	margin: 0 auto;
-	-webkit-perspective: 800px;
-	-moz-perspective: 800px;
-	-o-perspective: 800px;
-	perspective: 800px;
 }
 
 .card {
-	width: 5.5rem;
-	height: 6.5rem;
 	float: left;
 	margin-top: 10px;
 	border: none;
-	margin-left: 10px;
-	-webkit-transition: -webkit-transform 1s;
-	-moz-transition: -moz-transform 1s;
-	-o-transition: -o-transform 1s;
-	transition: transform 1s;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-o-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-}
-
-.card div {
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-o-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.card.flipped {
-	-webkit-transform: rotateY( 180deg);
-	-moz-transform: rotateY( 180deg);
-	-o-transform: rotateY( 180deg);
-	transform: rotateY( 180deg);
+	margin-left: 20px;
+	width: 5.5rem;
+	height: 6.5rem;
+	perspective: 1000px;
 }
 
 .memory .card {
 	background-image: url("../img/background.jpg");
 }
 
-.matched {
-	border: 2px solid orange;
-	border-radius: 5px;
+.matched .back {
+	opacity: 0.75;
+}
+
+.matched .back .title {
+	color: greenyellow;
+	text-align: center;
+}
+
+.card-inner {
+	position: relative;
+	width: 5.5rem;
+	height: 6.5rem;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+}
+
+.flipped {
+	transform: rotateY(180deg);
+}
+
+.front,
+.back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
 }
 
 @media screen and (max-width: 1280px) {
@@ -175,10 +165,15 @@ footer {
 	}
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 900px) {
 	.memory {
 		width: 30rem;
 		height: 50rem;
+	}
+	.card-inner {
+		width: 4.5rem;
+		height: 5.5rem;
+		margin-left: 5px;
 	}
 	.card {
 		width: 4.5rem;
@@ -189,7 +184,7 @@ footer {
 		padding-top: 15px;
 		font-size: 10vh;
 	}
-	.card .back .title {
+	.card-inner .back .title {
 		font-size: 1rem;
 	}
 }
@@ -199,14 +194,16 @@ footer {
 		width: 25rem;
 		height: 36rem;
 	}
+	.card-inner {
+		width: 3.7rem;
+		height: 4.7rem;
+	}
 	.card {
-		width: 4rem;
-		height: 5rem;
-		margin-left: 2px;
+		width: 3.7rem;
+		height: 4.7rem;
 	}
 	.start {
-		width: 55px;
-		height: 64px;
+		min-width: 170px;
 	}
 	.playAgain {
 		margin-left: 100px;
@@ -219,18 +216,20 @@ footer {
 	}
 }
 
-@media screen and (max-width: 408px) {
+@media screen and (max-width: 416px) {
 	.memory {
 		width: 22rem;
 		height: 35rem;
 	}
-	.card {
-		width: 3.5rem;
+	.card-inner {
+		width: 3.2rem;
 		height: 4.5rem;
-		margin-left: 2px;
+		margin-left: 4.5px;
 	}
-	button {
-		min-width: 200px;
+	.card {
+		width: 3.2rem;
+		height: 4.5rem;
+		margin-left: 4.px;
 	}
 	.menu {
 		padding-top: 8px;
@@ -239,32 +238,76 @@ footer {
 		margin-bottom: 5px;
 	}
 	.end-message {
-		padding-right: 40px;
+		width: 22rem;
 		margin-top: 30px;
 	}
 	.playAgain {
 		margin-left: 80px;
 	}
-	.card .back .title {
-		font-size: 0.8rem;
+	.card-inner .back .title {
+		font-size: 0.7rem;
 	}
 	#title-game {
 		font-size: 6vh;
 	}
 }
 
-@media screen and (max-width: 352px) {
+@media screen and (max-width: 362px) {
 	.memory {
 		width: 20rem;
 		height: 35rem;
 	}
-	.card {
-		width: 3rem;
-		height: 4rem;
-		margin-left: 4.5px;
+	.end-message {
+		width: 20rem;
 	}
-	.card .back .title {
-		font-size: 0.7rem;
+	.card-inner {
+		width: 2.8rem;
+		height: 3.8rem;
+		margin-left: 5px;
+	}
+	.card {
+		width: 2.8rem;
+		height: 3.8rem;
+		margin-left: 5px;
+	}
+	.card-inner .back .title {
+		font-size: 0.6rem;
+	}
+	.playAgain {
+		margin-left: 60px;
+	}
+}
+
+@media screen and (max-width: 332px) {
+	.memory {
+		width: 18rem;
+		height: 35rem;
+	}
+	.card-inner {
+		width: 2.8rem;
+		height: 3.8rem;
+		margin-left: 15px;
+	}
+	.card {
+		width: 2.8rem;
+		height: 3.8rem;
+		margin-left: 15px;
+	}
+	.card-inner .back .title {
+		font-size: 0.6rem;
+	}
+	.start {
+		min-width: 80px;
+		font-size: 4vh;
+	}
+	#title-game {
+		font-size: 5vh;
+	}
+	.end-message {
+		width: 15rem;
+	}
+	.playAgain {
+		margin-left: 45px;
 	}
 }
 
