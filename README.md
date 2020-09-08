@@ -43,6 +43,9 @@ I used Permanent Marker, from Google Fonts for the initial title of the game.
 
 * ![#000000](https://placehold.it/15/000000/000000?text=+) black - color of the score and the final message
 
+* ![#adff2f](https://placehold.it/15/adff2f/000000?text=+) greenyellow - color of the name of the matched cards
+
+
 ### Skeleton
 [Start wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframe/home%20screen.jpg)
 
@@ -63,11 +66,12 @@ I used Permanent Marker, from Google Fonts for the initial title of the game.
 
 ## Features
 
-This game was developed thanks to flip class of Javascript's jquery library. Once the game is started, the cards are shown for three seconds. Once a card is clicked it shows the image with the respective name, if the card clicked later is the same it remains turned over, otherwise it turns over.
+This game was developed thanks to HTML%, CSS3 asd Javascript's jquery library. Once the game is started, the cards are shown for three seconds. Once a card is clicked it shows the image with the respective name, if the card clicked later is the same it remains turned over, otherwise it turns over.
 ### Existing Features
 - Start button - allows users to start the game
 - Score - shows the user's current score
 - Restart button - allows the user to restart the game at any time
+- Card matching - each paired card becomes transparent and the name changes to orange
 - End message - shows the user the final result with the respective score
 
 ### Features Left to Implement
@@ -78,12 +82,9 @@ This game was developed thanks to flip class of Javascript's jquery library. Onc
 
 - HTML5
 - CSS3
-- [Bootstrap ](https://getbootstrap.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
-- [JQuery Flip](https://nnattawat.github.io/flip/)
-    - The project uses **JQuery Flip** to simplify cards rotation.
 
 
 ## Testing
