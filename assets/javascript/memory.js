@@ -84,7 +84,7 @@ class GalacticMemoryGame {
             _this.createGame();
         });
     }
-
+    //create the game
     createGame() {
         //create card list to use and sort them randomly
         this.deck = this.settings.planets.concat(this.settings.planets)
@@ -104,6 +104,7 @@ class GalacticMemoryGame {
         //show the cards for a while
         this.showAllCards();
     }
+    //create menu, consisting of score and restart button
     createMenu() {
         const _this = this;
         this.container.append('<div class="menu">' +
@@ -114,6 +115,7 @@ class GalacticMemoryGame {
             _this.createGame();
         });
     }
+    //show the cards when the game starts
     showAllCards() {
         const _this = this;
         //within half a second he shows all the cards
@@ -129,6 +131,7 @@ class GalacticMemoryGame {
                     }, 3000);
             }, 500);
     }
+    //ends the game with the respective winning or losing message
     endGame() {
         const _this = this;
         //if the score is greater than 0, you win!
@@ -138,6 +141,7 @@ class GalacticMemoryGame {
                 this.score +
                 '/120 points</div><div class="playAgain" id="playAgain">play again</div>'
                 );
+        //if less than 0 you have lost
         } else this.container.html(
             '<div class="end-message"><h2>You Lost!</h2><br><h3>Try Again..</h3></div><div class="playAgain" id="playAgain">play again</div>'
             );
@@ -148,14 +152,20 @@ class GalacticMemoryGame {
         });
 
     }
+
+    //Update score on screen and end game in case you don't have enough points to finish with positive score
     incScore() {
-        $('#score').text(this.score);
+        $('#score').text(this.score);//update score on screen
         //if you don't have enough cards in play to score a positive score, the game ends
         if (((this.score) + ((24 - ((this.matched) * 2)) * 5)) < 0) {
             this.endGame();
         }
     }
-
+    /**
+     * Create memory card
+     * @param {Integer} id - Unique card identification number
+     * @author Christian Garofoli
+     */
     createCard(id) {
         let front = '<div class="front"></div>';
         let back = '<div class="back"><div class="title">' + this.deck[id]
@@ -176,15 +186,14 @@ class GalacticMemoryGame {
             //If the game has started and the clicked card is not already turned
             if (_this
                 .isStart && $(this).attr('data-playable') == 1) {
-                $(this).toggleClass('flipped');
-
-                var playedCard = $(this).attr('data-name');
+                $(this).toggleClass('flipped');//flip the card
+                var playedCard = $(this).attr('data-name');//name of the card
                 _this.click++;
                 if (_this.click == 1) {
                     _this.first =
                     playedCard; //name first card selected
                     _this.idF = $(this); //id first card selected
-                    $(this).attr('data-playable', 0);
+                    $(this).attr('data-playable', 0);//card no longer playable
                 }
                 if (_this.click == 2) {
                     _this.isStart =
@@ -216,7 +225,7 @@ class GalacticMemoryGame {
                         _this.score -= 2;
                         _this.incScore();
 
-                        //after one second turn the wrong card over and set to true boolean variable isStart
+                        //after one second turn the wrong card over, reset to playable and set to true boolean variable isStart
                         setTimeout(
                             function() {
                                 $(_this.idF).toggleClass(
