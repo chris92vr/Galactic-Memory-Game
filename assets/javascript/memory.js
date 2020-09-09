@@ -76,7 +76,7 @@ class GalacticMemoryGame {
         const _this = this;
         this.container.html(
             '<h1 id="title-game">Galactic Memory Game</h1><button class="start" id="start">Start</button>'
-            );
+        );
         $('#start').click(function() {
             //cleans the contents of the container
             _this.container.html('');
@@ -91,6 +91,7 @@ class GalacticMemoryGame {
             .sort(() => 0.5 - Math.random());
         this.matched = 0;
         this.score = 0;
+        this.highscore = localStorage.getItem("highscore");
         this.isStart = false;
         this.click = 0;
         this.first = "";
@@ -107,9 +108,13 @@ class GalacticMemoryGame {
     //create menu, consisting of score and restart button
     createMenu() {
         const _this = this;
-        this.container.append('<div class="menu">' +
-            'Score:<span id="score">0</span> &ensp;&ensp;&ensp;<span id="restart" class="restart">Restart</span></div>'
-            );
+        this.container.append(
+            '<div class="menu">Score:<span id="score">0</span> &ensp;&ensp;&ensp;<span id="restart" class="restart">Restart</span>&ensp;&ensp;&ensp;High score:<span id="highscore">---</span></div>'
+        );
+        if ((this.highscore !== 0)) {
+            $('#highscore').text(this.highscore);
+        }
+        //restart game
         $('#restart').click(function() {
             _this.container.html('');
             _this.createGame();
@@ -140,22 +145,31 @@ class GalacticMemoryGame {
                 '<div class="end-message"><h2>You Won!</h2><br>You totaled: ' +
                 this.score +
                 '/120 points</div><div class="playAgain" id="playAgain">play again</div>'
-                );
-        //if less than 0 you have lost
-        } else this.container.html(
-            '<div class="end-message"><h2>You Lost!</h2><br><h3>Try Again..</h3></div><div class="playAgain" id="playAgain">play again</div>'
             );
+            //if less than 0 you have lost
+        } else {
+            this.container.html(
+                '<div class="end-message"><h2>You Lost!</h2><br><h3>Try Again..</h3></div><div class="playAgain" id="playAgain">play again</div>'
+            );
+        }
+        if (this.score > parseInt(localStorage.getItem(
+                "highscore"
+            ))) { //if actual score greater than storage higscore
+            localStorage.setItem("highscore", this
+                .score); //set actual score as highscore
+            this.highscore = parseInt(+localStorage.getItem("highscore"));
+            $(" .end-message").append(
+                '<h3>Congratulations! You have achieved the highest score</h3>')
+        }
         //restart game
         $('#playAgain').click(function() {
             _this.container.html('');
             _this.createGame();
         });
-
     }
-
     //Update score on screen and end game in case you don't have enough points to finish with positive score
     incScore() {
-        $('#score').text(this.score);//update score on screen
+        $('#score').text(this.score); //update score on screen
         //if you don't have enough cards in play to score a positive score, the game ends
         if (((this.score) + ((24 - ((this.matched) * 2)) * 5)) < 0) {
             this.endGame();
@@ -175,34 +189,34 @@ class GalacticMemoryGame {
         //cards with respective image and the name of the planet behind
         this.container.append('<div class="card"><div id="card' + id +
             '" class="card-inner" data-name="' + this.deck[id]
-            .name + '" data-playable="1">' + front + back + '</div></div>');
+            .name + '" data-playable="1">' + front + back +
+            '</div></div>');
         $('#card' + id + ' .back').css(
             'background-image', 'url("' + image_path + this.deck[id]
             .img + '")');
-        
-        
         $('#card' + id).click(function() {
-           
             //If the game has started and the clicked card is not already turned
             if (_this
                 .isStart && $(this).attr('data-playable') == 1) {
-                $(this).toggleClass('flipped');//flip the card
-                var playedCard = $(this).attr('data-name');//name of the card
+                $(this).toggleClass('flipped'); //flip the card
+                var playedCard = $(this).attr(
+                    'data-name'); //name of the card
                 _this.click++;
                 if (_this.click == 1) {
                     _this.first =
-                    playedCard; //name first card selected
+                        playedCard; //name first card selected
                     _this.idF = $(this); //id first card selected
-                    $(this).attr('data-playable', 0);//card no longer playable
+                    $(this).attr('data-playable',
+                        0); //card no longer playable
                 }
                 if (_this.click == 2) {
                     _this.isStart =
-                    false; //avoid clicking on a card before the two wrong combination cards are turned over
+                        false; //avoid clicking on a card before the two wrong combination cards are turned over
                     _this.click = 0; //reset click
                     _this.second =
-                    playedCard; //name second card selected
+                        playedCard; //name second card selected
                     _this.idS = $(
-                    this); //id second card selected            
+                        this); //id second card selected            
                     if (_this.first == _this.second) {
                         //correct match
                         //increases matched cards and the score 10 points
@@ -210,21 +224,23 @@ class GalacticMemoryGame {
                         _this.score += 10;
                         _this.incScore();
                         _this.idF.addClass(
-                        "matched"); //added matched class, first card selected
+                            "matched"
+                        ); //added matched class, first card selected
                         _this.idS.addClass(
-                        "matched"); //added matched class, second card selected
+                            "matched"
+                        ); //added matched class, second card selected
                         _this.isStart =
-                        true; //set to true boolean variable isStart
+                            true; //set to true boolean variable isStart
                         //end game when you matched all cards
                         $(this).attr('data-playable', 0);
                         if (_this.matched == 12) {
                             _this.endGame();
+
                         }
                     } else {
                         // wrong match, decreases the score by two points
                         _this.score -= 2;
                         _this.incScore();
-
                         //after one second turn the wrong card over, reset to playable and set to true boolean variable isStart
                         setTimeout(
                             function() {
