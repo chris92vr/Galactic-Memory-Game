@@ -92,6 +92,7 @@ class GalacticMemoryGame {
         this.matched = 0;
         this.score = 0;
         this.highscore = localStorage.getItem("highscore");
+        localStorage.setItem("highscore", 0);
         this.isStart = false;
         this.click = 0;
         this.first = "";
