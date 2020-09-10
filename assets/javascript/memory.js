@@ -238,7 +238,7 @@ class GalacticMemoryGame {
                             true; //set to true boolean variable isStart
                         //end game when you matched all cards
                         $(this).attr('data-playable', 0);
-                        if (_this.matched == 2) {
+                        if (_this.matched == 12) {
                             _this.endGame();
 
                         }
