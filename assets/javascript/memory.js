@@ -74,9 +74,11 @@ class GalacticMemoryGame {
         this.container = $(this.settings.container);
         //to refer to the objects of the class, not the click object element
         const _this = this;
+        
         this.container.html(
             '<h1 id="title-game">Galactic Memory Game</h1><button class="start" id="start">Start</button>'
         );
+    
         $('#start').click(function() {
             //cleans the contents of the container
             _this.container.html('');
@@ -91,14 +93,13 @@ class GalacticMemoryGame {
             .sort(() => 0.5 - Math.random());
         this.matched = 0;
         this.score = 0;
-        this.highscore = localStorage.getItem("highscore");
-        localStorage.setItem("highscore", 0);
         this.isStart = false;
         this.click = 0;
         this.first = "";
         this.second = "";
         this.idF = "";
         this.idS = "";
+        this.highscore = localStorage.getItem("highscore");
         //create menu
         this.createMenu();
         //adds the cards
@@ -112,6 +113,9 @@ class GalacticMemoryGame {
         this.container.append(
             '<div class="menu">Score:<span id="score">0</span> &ensp;&ensp;&ensp;<span id="restart" class="restart">Restart</span>&ensp;&ensp;&ensp;High score:<span id="highscore">---</span></div>'
         );
+        if ((this.highscore == null)) {
+            localStorage.setItem("highscore",0);
+        }
         if ((this.highscore !== 0)) {
             $('#highscore').text(this.highscore);
         }
@@ -234,7 +238,7 @@ class GalacticMemoryGame {
                             true; //set to true boolean variable isStart
                         //end game when you matched all cards
                         $(this).attr('data-playable', 0);
-                        if (_this.matched == 12) {
+                        if (_this.matched == 2) {
                             _this.endGame();
 
                         }
