@@ -115,6 +115,7 @@ class GalacticMemoryGame {
         );
         if ((this.highscore == null)) {
             localStorage.setItem("highscore",0);
+            $('#highscore').text("---");
         }
         if ((this.highscore !== 0)) {
             $('#highscore').text(this.highscore);
