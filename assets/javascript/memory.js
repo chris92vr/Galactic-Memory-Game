@@ -115,9 +115,10 @@ class GalacticMemoryGame {
         );
         if ((this.highscore == null)) {
             localStorage.setItem("highscore",0);
-        }
-        if ((this.highscore !== 0)) {
+             $('#highscore').hidden();
+        }else {
             $('#highscore').text(this.highscore);
+             $('#highscore').show();
         }
         //restart game
         $('#restart').click(function() {
