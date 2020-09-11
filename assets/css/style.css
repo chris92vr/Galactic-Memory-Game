@@ -129,14 +129,9 @@ button {
 .memory .card {
 	background-image: url("../img/background.jpg");
 }
-
-.matched .back {
-	opacity: 0.75;
-}
-
 .matched .back .title {
-	color: greenyellow;
-	text-align: center;
+	font-weight: bold;
+    text-decoration: underline;
 }
 
 .card-inner {
