@@ -111,7 +111,7 @@ class GalacticMemoryGame {
     createMenu() {
         const _this = this;
         this.container.append(
-            '<div class="menu">Score:<span id="score">0</span> &ensp;&ensp;&ensp;<span id="restart" class="restart">Restart</span>&ensp;&ensp;&ensp;High score:<span id="highscore">---</span></div>'
+            '<div class="menu">Score: <span id="score">0</span> &ensp;&ensp;&ensp;<span id="restart" class="restart">Restart</span>&ensp;&ensp;&ensp;High score: <span id="highscore">---</span></div>'
         );
         if ((this.highscore == null)) {
             localStorage.setItem("highscore",0);
