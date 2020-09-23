@@ -49,8 +49,6 @@ I used Lato, from Google Fonts for the names of the planets on the cards.
 
 * ![#000000](https://placehold.it/15/000000/000000?text=+) black - color of the score and the final message
 
-* ![#adff2f](https://placehold.it/15/adff2f/000000?text=+) greenyellow - color of the name of the matched cards
-
 
 ### Skeleton
 
@@ -62,7 +60,7 @@ I used Lato, from Google Fonts for the names of the planets on the cards.
 
 [end losing message wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframes/end%20losing%20message%20wireframe.png)
 
-[Start (mobile) wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframes/home%20screeen%20(mobile)%20wireframe.png)
+[Start (mobile) wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframes/start%20(mobile)%20wireframe.png)
 
 [Galactic Memory Game (mobile) wireframe](https://github.com/chris92vr/Galactic-Memory-Game/blob/master/project-documentation/wireframes/galactic%20memory%20game%20(mobile)%20wireframe.png)
 
