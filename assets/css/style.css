@@ -114,6 +114,7 @@ button {
 	width: 55rem;
 	height: 40rem;
 	margin: 0 auto;
+	margin-bottom: 18rem;
 }
 
 .card {
@@ -166,6 +167,7 @@ button {
 	.memory {
 		width: 30rem;
 		height: 50rem;
+		margin-bottom: 4rem;
 	}
 	.card-inner {
 		width: 4.5rem;
@@ -253,6 +255,7 @@ button {
 	.memory {
 		width: 20rem;
 		height: 35rem;
+		margin-bottom: 1rem;
 	}
 	.end-message {
 		width: 20rem;
@@ -307,4 +310,3 @@ button {
 		margin-left: 45px;
 	}
 }
-
