@@ -59,13 +59,13 @@ button {
 
 .start {
 	width: 200px;
-	height: 64px;
-	line-height: 64px;
+	
+	padding: 0.1rem;
+	
 	background-color: black;
 	color: #fff;
 	margin-right: -100px;
 	margin-left: -100px;
-	margin-top: 20px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -114,7 +114,7 @@ button {
 	width: 55rem;
 	height: 40rem;
 	margin: 0 auto;
-	margin-bottom: 18rem;
+	margin-bottom: 28rem;
 }
 
 .card {
@@ -159,7 +159,7 @@ button {
 @media screen and (max-width: 1280px) {
 	.start {
 		width: 100px;
-		height: 64px;
+	
 	}
 }
 
@@ -202,7 +202,7 @@ button {
 		height: 4.7rem;
 	}
 	.start {
-		min-width: 170px;
+		min-width: 270px;
 	}
 	.playAgain {
 		margin-left: 100px;
@@ -297,7 +297,7 @@ button {
 		font-size: 0.6rem;
 	}
 	.start {
-		min-width: 80px;
+		min-width: 180px;
 		font-size: 4vh;
 	}
 	#title-game {
